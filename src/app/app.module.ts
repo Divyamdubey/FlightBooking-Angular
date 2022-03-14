@@ -15,10 +15,10 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,AdminComponent,UserComponent, UserRegistrationComponent, SearchFlightsComponent, BookFlightComponent, SearchBookingComponent, AddFlightComponent, ReportFlightsComponent
+    AppComponent, AdminComponent, UserComponent, UserRegistrationComponent, SearchFlightsComponent, BookFlightComponent, SearchBookingComponent, AddFlightComponent, ReportFlightsComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule,HttpClientModule,AppRoutingModule,FormsModule
+    BrowserModule, AppRoutingModule, HttpClientModule, AppRoutingModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

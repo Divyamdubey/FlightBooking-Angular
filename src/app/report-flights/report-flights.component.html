@@ -1,6 +1,6 @@
 <h2>Flight Report</h2><br>
 Flight No: <input type="text">
-<button type="submit">Search</button><br>
+<button (click)='search()'>Search</button><br>
 <table class="table" border="solid">
     <thead>
         <th scope="col">Flight No</th>
@@ -9,22 +9,29 @@ Flight No: <input type="text">
         <th scope="col">To</th>
         <th scope="col">Departure Date</th>
         <th scope="col">Arrival Date</th>
+        <th scope="col">Cost</th>
+        <th scope="col">TotalSeats</th>
+        <th scope="col">DiscountCode</th>
         <th scope="col">Status</th>
         <th scope="col">Change Status</th>
         <th scope="col">Update Status</th>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><input type="checkbox" id="status" name="status" value="blocked">
-                <label for="status"> Block flight</label></td>
-            <td><button type="submit">Update</button></td>
+        <tr *ngFor="let flight of flights ;index as i" style="background-color: rgb(240, 255, 254);">
+            <td>{{flight.flightNo}}</td>
+            <td>{{flight.name}}</td>
+            <td>{{flight.departureFrom}}</td>
+            <td>{{flight.arrivalTo}}</td>
+            <td>{{flight.departureDate}}</td>
+            <td>{{flight.arrivalDate}}</td>
+            <td>{{flight.cost}}</td>
+            <td>{{flight.totalSeats}}</td>
+            <td>{{flight.discountCode}}</td>
+            <td>{{flight.status}}</td>
+            <td><input type="radio" ng-model="status" name='status' value="Blocked" (click)='status= "Blocked"'>Block
+                <input type="radio" ng-model="status" name='status' value="Unblocked"(click)='status= "Unblocked"'>Unblock
+            </td>
+            <td><button (click)='changeStatus(flight.flightNo,status)'>Update</button></td>
         </tr>
     </tbody>
 </table><br>

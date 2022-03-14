@@ -10,7 +10,7 @@ import { AddFlightComponent } from '../add-flight/add-flight.component';
 import { ReportFlightsComponent } from '../report-flights/report-flights.component';
 
 const routes: Routes = [
-  {path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'user', component: UserComponent },
   { path: 'userRegistration', component: UserRegistrationComponent },
   { path: 'searchFlight', component: SearchFlightsComponent },

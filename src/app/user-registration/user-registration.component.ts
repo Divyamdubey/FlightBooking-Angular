@@ -8,11 +8,11 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-  isOpen = false; 
+  isOpen = false;
   user = {
     firstName: 'divyam',
     lastName: 'dubey',
-    password:'divy123',
+    password: 'divy123',
     phone: 988594,
     email: 'divya@gmail',
   }

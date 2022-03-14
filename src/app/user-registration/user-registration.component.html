@@ -1,11 +1,10 @@
-
 <H2>User Registration Page</H2><br><br>
 <form>
     Enter First Name : <input [(ngModel)]='user.firstName' name="firstName" minlength="5"><br>
-    Enter Last Name : <input [(ngModel)]='user.lastName'name="lastName"minlength="1"><br>
-    Enter Password : <input [(ngModel)]='user.password'name="password"minlength="8"><br>
-    Enter Phone No : <input [(ngModel)]='user.phone'name="phone"minlength="8"><br>
-    Enter Email : <input [(ngModel)]='user.email'name="email"><br>
-    <button (click)='save()'onclick="alert('Login successful')">Register</button>
+    Enter Last Name : <input [(ngModel)]='user.lastName' name="lastName" minlength="1"><br>
+    Enter Password : <input [(ngModel)]='user.password' name="password" minlength="8"><br>
+    Enter Phone No : <input [(ngModel)]='user.phone' name="phone" minlength="8"><br>
+    Enter Email : <input [(ngModel)]='user.email' name="email"><br>
+    <button (click)='save()' onclick="alert('Login successful')">Register</button>
     <input type="reset">
 </form>

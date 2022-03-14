@@ -8,10 +8,10 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  isOpen = false; 
+  isOpen = false;
   admin = {
     name: 'divyam',
-    password:'divy123',
+    password: 'divy123',
   }
   login() {
     const observable = this.adminService.login(this.admin);
@@ -22,7 +22,7 @@ export class AdminComponent implements OnInit {
         alert('something went wrong. Please try again.')
       });
   }
-  constructor(public adminService:AdminService ) { }
+  constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
   }

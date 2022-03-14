@@ -15,16 +15,16 @@ export class SearchFlightsComponent implements OnInit {
   }
   flights = <any>[];
 
-  setFlightNo(flightNo:string){
-      this.userService.setFlightNo(flightNo)
+  setFlightNo(flightNo: string) {
+    this.userService.setFlightNo(flightNo)
   }
-  setCost(cost:number){
+  setCost(cost: number) {
     this.userService.setCost(cost)
-}
+  }
   search() {
-    const observable = this.userService.searchFlight(this.searchFlight.departureFrom,this.searchFlight.arrivalTo);
+    const observable = this.userService.searchFlight(this.searchFlight.departureFrom, this.searchFlight.arrivalTo);
     observable.subscribe((response: any) => {//success handler
-      this.flights=response;
+      this.flights = response;
       console.log(response);
 
     },
