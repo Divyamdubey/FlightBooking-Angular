@@ -1,0 +1,16 @@
+<form>
+    First Name:<input type="text" [(ngModel)]="booking.firstName"name="firstName">
+    Last Name:<input type="text"[(ngModel)]="booking.lastName"name="lastName"><br>
+    Flight No:<input type="text"[(ngModel)]="booking.flightNo"name="flightNo"><br>
+    Age:      <input type="number"[(ngModel)]="booking.age"name="age"><br>
+    Gender:<input type="radio"[(ngModel)]="booking.gender" name='gender' value="male">Male
+    <input type="radio"[(ngModel)]="booking.gender" name='gender' value="female">Female<br>
+    Meal Type:<input type="radio"[(ngModel)]="booking.mealType" name='meal' value="veg">Veg
+    <input type="radio"[(ngModel)]="booking.mealType" name='meal' value="non-veg">Non Veg<br>
+    Email Id: <input type="email"[(ngModel)]="booking.mail"name="mail"><br>
+    Seat No:      <input type="number"[(ngModel)]="booking.seatNo"name="seatNo"><br>
+    Cost:      <input type="number"[(ngModel)]="booking.cost"name="cost"><br>
+    Booking Mail    :   <input type="email"[(ngModel)]="booking.bookingMail"name="bookingMail"><br>
+    <button (click)='bookFlight()' onclick="alert('booking successful')">Book Flight</button>
+</form><br>
+<button><a routerLink="/searchFlight" routerLinkActive="active">Previous page</a></button>

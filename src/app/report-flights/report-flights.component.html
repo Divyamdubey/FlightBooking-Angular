@@ -1,0 +1,31 @@
+<h2>Flight Report</h2><br>
+Flight No: <input type="text">
+<button type="submit">Search</button><br>
+<table class="table" border="solid">
+    <thead>
+        <th scope="col">Flight No</th>
+        <th scope="col">Flight Name</th>
+        <th scope="col">From</th>
+        <th scope="col">To</th>
+        <th scope="col">Departure Date</th>
+        <th scope="col">Arrival Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Change Status</th>
+        <th scope="col">Update Status</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><input type="checkbox" id="status" name="status" value="blocked">
+                <label for="status"> Block flight</label></td>
+            <td><button type="submit">Update</button></td>
+        </tr>
+    </tbody>
+</table><br>
+<button><a routerLink="/addFlight" routerLinkActive="active">Previous page</a></button>

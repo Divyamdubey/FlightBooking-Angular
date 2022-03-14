@@ -1,0 +1,18 @@
+<nav style="border: 1px solid rgb(33, 8, 146)">
+    <button style="padding: 10px;"><a routerLink="/addFlight" routerLinkActive="active">Add Flight</a></button>
+    <button style="padding: 10px;"><a routerLink="/report" routerLinkActive="active">flight Report</a></button>
+  </nav><br>
+<h2>Add Flight</h2>
+<form>
+    Flight No:<input type="text" [(ngModel)]="flight.flightNo" name="flightNo">
+    Flight Name:<input type="text"[(ngModel)]="flight.name" name="name"><br>
+    From:      <input type="text"[(ngModel)]="flight.departureFrom" name="departureFrom">
+    To:      <input type="text"[(ngModel)]="flight.arrivalTo"name="arrivalTo"><br>
+    Departure Date:      <input type="date"[(ngModel)]="flight.departureDate" name="departureDate">
+    Arrival Date:      <input type="date"[(ngModel)]="flight.arrivalDate"name="arrivalDate"><br>
+    Cost:      <input type="number"[(ngModel)]="flight.cost"name="cost"><br>
+    Discount Code:      <input type="text"[(ngModel)]="flight.discountCode"name="discountCode"><br>
+    Total Seats:      <input type="number"[(ngModel)]="flight.totalSeats"name="totalSeats"><br>
+    Status:      <input type="text"[(ngModel)]="flight.status"name="status"><br>
+    <button (click)='addFlight()'>Add Flight</button>
+</form><br>

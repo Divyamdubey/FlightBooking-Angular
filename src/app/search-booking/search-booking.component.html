@@ -1,0 +1,34 @@
+<h3>Search Booking</h3><br>
+<label> Pnr/Email:</label><input type="text" [(ngModel)]="searchBooking">
+<button (click)='searchBookings()'>Search</button><br>
+    <table class="table" border="solid">
+      <thead class='thead-dark'>
+        <th scope="col">Id</th>
+          <th scope="col">Flight No</th>
+          <th scope="col">Pnr</th>
+          <th scope="col">Email</th>
+          <th scope="col">Cancel</th>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="flag2">
+          <tr *ngFor="let detail of details;index as i" style="background-color: rgb(240, 255, 254);">
+              <td>{{detail.id}}</td>
+              <td>{{detail.flightNo}}</td>
+              <td>{{detail.pnr}}</td>
+              <td>{{detail.userEmail}}</td>
+              <td><button (click)='deleteBooking(detail.pnr, i)'>Cancel</button></td>
+          </tr>
+        </ng-container>
+          <ng-container *ngIf="flag1">
+            <tr style="background-color: rgb(240, 255, 254);">
+                <td>{{detail.id}}</td>
+                <td>{{detail.flightNo}}</td>
+                <td>{{detail.pnr}}</td>
+                <td>{{detail.userEmail}}</td>
+                <td><button (click)='deleteBooking(detail.pnr, 0)'>Cancel</button></td>
+            </tr>    
+      </ng-container>
+         
+      </tbody>
+  </table><br>
+  <button><a routerLink="/searchFlight" routerLinkActive="active">Previous page</a></button>

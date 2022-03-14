@@ -1,0 +1,9 @@
+
+<H2>Admin Login Page</H2><br><br>
+<form>
+    
+    Enter Admin Name :<input type="text" [(ngModel)]="admin.name" name="name"><br>
+    Enter Password :<input type="password"[(ngModel)]="admin.password" name="password"><br>
+    <button (click)='login()'><a routerLink="/addFlight" routerLinkActive="active">Login</a></button>
+    <input type="reset">
+</form>
