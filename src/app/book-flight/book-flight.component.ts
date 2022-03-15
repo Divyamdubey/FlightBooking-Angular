@@ -20,7 +20,7 @@ export class BookFlightComponent implements OnInit {
     "mealType": "",
     "seatNo": 0,
     "cost": this.userService.getCost(),
-    "bookingMail": ""
+    "bookingMail": this.userService.getEmail()
   }
   bookFlight() {
     const observable = this.userService.bookFlight(this.booking, this.booking.flightNo);

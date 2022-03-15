@@ -10,7 +10,7 @@
     Email Id: <input type="email" [(ngModel)]="booking.mail" name="mail"><br>
     Seat No: <input type="number" [(ngModel)]="booking.seatNo" name="seatNo"><br>
     Cost: <input type="number" [(ngModel)]="booking.cost" name="cost"><br>
-    Booking Mail : <input type="email" [(ngModel)]="booking.bookingMail" name="bookingMail"><br>
+    Booking Mail : <input type="text" [(ngModel)]="booking.bookingMail" name="bookingMail"><br>
     <button (click)='bookFlight()' onclick="alert('booking successful')">Book Flight</button>
 </form><br>
 <button><a routerLink="/searchFlight" routerLinkActive="active">Previous page</a></button>

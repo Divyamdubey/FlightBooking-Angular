@@ -9,7 +9,7 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class ReportFlightsComponent implements OnInit {
   flights = <any>[]
-  status = ""
+  status = "Unblocked"
   search() {
     const observable = this.adminService.searchFlight();
     observable.subscribe((response: any) => {//success handler
@@ -27,7 +27,15 @@ export class ReportFlightsComponent implements OnInit {
       console.log(response);
 
     },
-      );
+    );
+  }
+  deleteFlight(flightNo: string) {
+    const observable = this.adminService.deleteFlight(flightNo);
+    observable.subscribe((response: any) => {//success handler
+      console.log(response);
+
+    },
+    );
   }
   constructor(public adminService: AdminService) { }
 

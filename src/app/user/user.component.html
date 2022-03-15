@@ -1,10 +1,13 @@
 <H2>User Login Page</H2><br><br>
 <form>
-    Enter User Name :<input type="text" name="username"><br>
-    Enter Password :<input type="password" name="pwd"><br>
-    <button type="button" onclick="alert('Login successful')"><a routerLink="/searchFlight"
-            routerLinkActive="active">Login</a></button>
-    <input type="reset">
+        Enter User Email :<input type="text" [(ngModel)]="user.email" name="email"><br>
+        Enter Password :<input type="password" [(ngModel)]="user.password" name="password"><br>
+        <button (click)='login()'>Login</button>
+        <input type="reset"><br>
+        <ng-container *ngIf="flag">
+                <button><a routerLink="/searchFlight" routerLinkActive="active" (click)=' setEmail(user.email)'>User
+                                Menu</a></button><br>
+        </ng-container>
 </form>
 Registration page:<button type="submit"><a routerLink="/userRegistration"
-        routerLinkActive="active">Registration</a></button>
+                routerLinkActive="active">Registration</a></button>

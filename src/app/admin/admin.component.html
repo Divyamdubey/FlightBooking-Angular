@@ -3,6 +3,9 @@
 
     Enter Admin Name :<input type="text" [(ngModel)]="admin.name" name="name"><br>
     Enter Password :<input type="password" [(ngModel)]="admin.password" name="password"><br>
-    <button (click)='login()'><a routerLink="/addFlight" routerLinkActive="active">Login</a></button>
-    <input type="reset">
+    <button (click)='login()'>Login</button>
+    <input type="reset"><br>
+    <ng-container *ngIf="flag">
+        <button><a routerLink="/addFlight" routerLinkActive="active">Admin Menu</a></button><br>
+    </ng-container>
 </form>

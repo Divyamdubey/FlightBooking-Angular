@@ -38,5 +38,13 @@ export class AdminService {
       }
     });
   }
+
+  deleteFlight(flightNo: string) {
+    return this.http.delete("http://localhost:8080/flight/admin/delete/" + flightNo, {
+      headers: {
+        "content-type": 'application/json'
+      }
+    });
+  }
   constructor(public http: HttpClient) { }
 }

@@ -7,6 +7,16 @@ import { Injectable } from '@angular/core';
 export class UserService {
   flightNo = ""
   cost = 0
+  email = ""
+
+  login(user: { email: string; password: string; }) {
+    return this.http.post("http://localhost:8080/flight/user/login", user, {
+      headers: {
+        "content-type": 'application/json'
+      }
+    });
+  }
+
   createUser(user: { firstName: string; lastName: string; password: string; phone: number; email: string; }) {
     return this.http.post("http://localhost:8080/flight/airline/UserRegister", user, {
       headers: {
@@ -70,6 +80,12 @@ export class UserService {
   }
   getCost() {
     return this.cost
+  }
+  setEmail(email: string) {
+    this.email = email
+  }
+  getEmail() {
+    return this.email
   }
   constructor(public http: HttpClient) { }
 }

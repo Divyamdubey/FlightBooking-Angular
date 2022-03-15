@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user',
@@ -6,8 +8,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  isOpen = false;
+  flag = false
+  user = {
+    email: 'archit@gmail',
+    password: 'archit123',
+  }
+  setEmail(email: string) {
+    this.userService.setEmail(email)
+  }
+  login() {
+    const observable = this.userService.login(this.user);
+    observable.subscribe((response: any) => {//success handler
+      if (response == null) {
+        this.flag = false
+        console.warn("invalid credentials")
+      }
+      else {
+        this.flag = true;
+        console.log(response);
+      }
 
-  constructor() { }
+    },
+      function (error: any) { //error handler
+        alert('something went wrong. Please try again.')
+      });
+  }
+  constructor(public userService: UserService) { }
 
   ngOnInit(): void {
   }

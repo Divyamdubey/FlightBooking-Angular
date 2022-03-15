@@ -9,6 +9,7 @@ import { AdminService } from '../admin.service';
 })
 export class AdminComponent implements OnInit {
   isOpen = false;
+  flag = false
   admin = {
     name: 'divyam',
     password: 'divy123',
@@ -16,7 +17,15 @@ export class AdminComponent implements OnInit {
   login() {
     const observable = this.adminService.login(this.admin);
     observable.subscribe((response: any) => {//success handler
-      console.log(response);
+      if (response == null) {
+        this.flag = false
+        console.warn("invalid credentials")
+      }
+      else {
+        this.flag = true;
+        console.log(response);
+      }
+
     },
       function (error: any) { //error handler
         alert('something went wrong. Please try again.')
