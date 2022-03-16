@@ -1,10 +1,31 @@
 <H2>User Registration Page</H2><br><br>
 <form>
-    Enter First Name : <input [(ngModel)]='user.firstName' name="firstName" minlength="5"><br>
-    Enter Last Name : <input [(ngModel)]='user.lastName' name="lastName" minlength="1"><br>
-    Enter Password : <input [(ngModel)]='user.password' name="password" minlength="8"><br>
-    Enter Phone No : <input [(ngModel)]='user.phone' name="phone" minlength="8"><br>
-    Enter Email : <input [(ngModel)]='user.email' name="email"><br>
-    <button (click)='save()' onclick="alert('Login successful')">Register</button>
-    <input type="reset">
+    <div class="row">
+    <div class="col-sm-2">
+        First Name: <input class="form-control" [(ngModel)]='user.firstName' name="firstName"
+            placeholder="Enter first name" minlength="5" required>
+    </div>
+    <div class="col-sm-2">
+        Last Name: <input class="form-control" [(ngModel)]='user.lastName' name="lastName" placeholder="Enter last name"
+            minlength="5" required>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        Password: <input class="form-control" [(ngModel)]='user.password' name="password" placeholder="Enter password"
+            minlength="5" required>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        Phone No: <input type="number" class="form-control" [(ngModel)]='user.phone' name="phone" placeholder="Enter phone no."
+            minlength="5" required>
+    </div>
+    <div class="col-sm-2">
+        Email: <input  type="email" class="form-control" [(ngModel)]='user.email' name="email" placeholder="Enter email" minlength="5"
+            required>
+    </div>
+</div>
+    <button class="btn btn-primary" (click)='save()' onclick="alert('Login successful')">Register</button>
+    <input class="btn btn-secondary" type="reset">
 </form>

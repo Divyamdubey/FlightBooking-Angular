@@ -1,8 +1,21 @@
+<nav class="nav nav-pills">
+  <a class="nav-link " routerLink="/searchFlight" routerLinkActive="active">Search</a>
+  <a class="nav-link" routerLink="/book" routerLinkActive="active">Book Flight</a>
+  <a class="nav-link active" routerLink="/details" routerLinkActive="active">Booking Details</a>
+</nav><br>
 <h3>Search Booking</h3><br>
-<label> Pnr/Email:</label><input type="text" [(ngModel)]="searchBooking">
-<button (click)='searchBookings()'>Search</button><br>
-<table class="table" border="solid">
-  <thead class='thead-dark'>
+<div class="row">
+  <div class="col-sm-2">
+    <label> Pnr/Email:</label><input type="text" class="form-control" [(ngModel)]="searchBooking" placeholder="Enter pnr or email">
+  </div>
+  <div class="col-sm-2"> 
+   
+    <br> <button class="btn btn-primary" (click)='searchBookings()'>Search</button><br>
+  </div>
+</div>
+<br>
+<table class="table table-striped table"class="table table-hover" border="solid">
+  <thead >
     <th scope="col">Id</th>
     <th scope="col">Flight No</th>
     <th scope="col">Pnr</th>
@@ -16,7 +29,7 @@
         <td>{{detail.flightNo}}</td>
         <td>{{detail.pnr}}</td>
         <td>{{detail.userEmail}}</td>
-        <td><button (click)='deleteBooking(detail.pnr, i)'>Cancel</button></td>
+        <td><button class="btn btn-outline-danger btn-sm" (click)='deleteBooking(detail.pnr, i)'>Cancel</button></td>
       </tr>
     </ng-container>
     <ng-container *ngIf="flag1">
@@ -25,10 +38,9 @@
         <td>{{detail.flightNo}}</td>
         <td>{{detail.pnr}}</td>
         <td>{{detail.userEmail}}</td>
-        <td><button (click)='deleteBooking(detail.pnr, 0)'>Cancel</button></td>
+        <td><button class="btn btn-outline-danger btn-sm" (click)='deleteBooking(detail.pnr, 0)'>Cancel</button></td>
       </tr>
     </ng-container>
 
   </tbody>
 </table><br>
-<button><a routerLink="/searchFlight" routerLinkActive="active">Previous page</a></button>

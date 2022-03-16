@@ -1,11 +1,16 @@
 <H2>Admin Login Page</H2><br><br>
 <form>
-
-    Enter Admin Name :<input type="text" [(ngModel)]="admin.name" name="name"><br>
-    Enter Password :<input type="password" [(ngModel)]="admin.password" name="password"><br>
-    <button (click)='login()'>Login</button>
-    <input type="reset"><br>
+    <div class="col-sm-2">
+        Enter Admin Name :<input class="form-control " type="text" [(ngModel)]="admin.name" name="name"
+            placeholder="Enter email" ngModel required><br>
+    </div>
+    <div class="col-sm-2">
+        Enter Password : <input class="form-control" type="password" [(ngModel)]="admin.password"
+                placeholder="Enter password" name="password" required="true"><br>
+</div>
+    <button class="btn btn-primary btn-sm" (click)='login()'>Login</button>
+    <input class="btn btn-secondary btn-sm" type="reset"><br>
     <ng-container *ngIf="flag">
-        <button><a routerLink="/addFlight" routerLinkActive="active">Admin Menu</a></button><br>
+        <a  class = "btn btn-primary" routerLink="/addFlight" routerLinkActive="active">Admin Menu</a><br>
     </ng-container>
 </form>

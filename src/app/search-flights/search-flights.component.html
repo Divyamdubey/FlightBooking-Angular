@@ -1,14 +1,25 @@
-<nav style="border: 1px solid rgb(33, 8, 146)">
-    <button style="padding: 10px;"><a routerLink="/searchFlight" routerLinkActive="active">Search</a></button>
-    <button style="padding: 10px;"><a routerLink="/book" routerLinkActive="active">Book Flight</a></button>
-    <button style="padding: 10px;"><a routerLink="/details" routerLinkActive="active">Booking Details</a></button>
+<nav class="nav nav-pills">
+   <a class="nav-link active" routerLink="/searchFlight" routerLinkActive="active">Search</a>
+   <a class="nav-link" routerLink="/book" routerLinkActive="active">Book Flight</a>
+   <a class="nav-link" routerLink="/details" routerLinkActive="active">Booking Details</a>
 </nav><br>
 <h3>Search Flight</h3><br>
-From:<input type="text" [(ngModel)]="searchFlight.departureFrom" name="departureFrom">
-To:<input type="text" [(ngModel)]="searchFlight.arrivalTo" name="arrivalTo">
-<button (click)="search()">Search</button><br>
-<table class="table" border="solid">
-    <thead style="background-color: rgb(193, 240, 240);">
+<div class="row">
+    <div class="col-sm-2">
+        From:<input type="text" class="form-control" [(ngModel)]="searchFlight.departureFrom" name="departureFrom" placeholder="Enter departure airport">
+    </div>
+    <div class="col-sm-2"> 
+        To:<input type="text" class="form-control" [(ngModel)]="searchFlight.arrivalTo" name="arrivalTo" placeholder="Enter arrival airport">
+    </div>
+    <div class="col-sm-2"> 
+        <br>
+       <button  class="btn btn-primary" (click)="search()"> Search</button><br>
+    </div>
+  </div>
+<br>
+<div class="table-responsive">
+<table class="table table-striped table"class="table table-hover" border="solid">
+    <thead>
         <th scope="col">Flight No</th>
         <th scope="col">Flight Name</th>
         <th scope="col">Arrival Date</th>
@@ -31,8 +42,9 @@ To:<input type="text" [(ngModel)]="searchFlight.arrivalTo" name="arrivalTo">
             <td>{{flight.cost}}</td>
             <td>{{flight.discountCode}}</td>
             <td>{{flight.totalSeats}}</td>
-            <td><button><a routerLink="/book" routerLinkActive="active" (click)=' setFlightNo(flight.flightNo)'
-                        (click)='setCost(flight.cost)'>Book</a></button></td>
+            <td><a class="btn btn-outline-primary btn-sm" routerLink="/book" routerLinkActive="active" (click)=' setFlightNo(flight.flightNo)'
+                        (click)='setCost(flight.cost)'>Book</a></td>
         </tr>
     </tbody>
-</table><br>
+</table>
+</div>

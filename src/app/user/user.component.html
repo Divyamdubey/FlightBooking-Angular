@@ -1,13 +1,20 @@
 <H2>User Login Page</H2><br><br>
 <form>
-        Enter User Email :<input type="text" [(ngModel)]="user.email" name="email"><br>
-        Enter Password :<input type="password" [(ngModel)]="user.password" name="password"><br>
-        <button (click)='login()'>Login</button>
-        <input type="reset"><br>
+        <div class="col-sm-2">
+                Enter User Email : <input class="form-control" type="email" placeholder="Enter email"
+                        [(ngModel)]="user.email" name="email" required><br>
+        </div>
+
+        <div class="col-sm-2">
+                Enter Password : <input class="form-control" type="password" [(ngModel)]="user.password"
+                        placeholder="Enter password" name="password" required><br>
+        </div>
+        <button class="btn btn-primary btn-sm" (click)='login()'>Login</button>
+        <input class="btn btn-secondary btn-sm" type="reset"><br>
         <ng-container *ngIf="flag">
-                <button><a routerLink="/searchFlight" routerLinkActive="active" (click)=' setEmail(user.email)'>User
-                                Menu</a></button><br>
+                <a class="btn btn-secondary" routerLink="/searchFlight" routerLinkActive="active"
+                        (click)=' setEmail(user.email)'>User
+                        Menu</a><br>
         </ng-container>
-</form>
-Registration page:<button type="submit"><a routerLink="/userRegistration"
-                routerLinkActive="active">Registration</a></button>
+</form><br>
+Registration page:<a class="btn btn-secondary" routerLink="/userRegistration" routerLinkActive="active">Registration</a>

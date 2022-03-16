@@ -1,16 +1,51 @@
-<form>
-    First Name:<input type="text" [(ngModel)]="booking.firstName" name="firstName">
-    Last Name:<input type="text" [(ngModel)]="booking.lastName" name="lastName"><br>
-    Flight No:<input type="text" [(ngModel)]="booking.flightNo" name="flightNo"><br>
-    Age: <input type="number" [(ngModel)]="booking.age" name="age"><br>
-    Gender:<input type="radio" [(ngModel)]="booking.gender" name='gender' value="male">Male
-    <input type="radio" [(ngModel)]="booking.gender" name='gender' value="female">Female<br>
-    Meal Type:<input type="radio" [(ngModel)]="booking.mealType" name='meal' value="veg">Veg
-    <input type="radio" [(ngModel)]="booking.mealType" name='meal' value="non-veg">Non Veg<br>
-    Email Id: <input type="email" [(ngModel)]="booking.mail" name="mail"><br>
-    Seat No: <input type="number" [(ngModel)]="booking.seatNo" name="seatNo"><br>
-    Cost: <input type="number" [(ngModel)]="booking.cost" name="cost"><br>
-    Booking Mail : <input type="text" [(ngModel)]="booking.bookingMail" name="bookingMail"><br>
-    <button (click)='bookFlight()' onclick="alert('booking successful')">Book Flight</button>
+<nav class="nav nav-pills">
+    <a class="nav-link " routerLink="/searchFlight" routerLinkActive="active">Search</a>
+    <a class="nav-link active" routerLink="/book" routerLinkActive="active">Book Flight</a>
+    <a class="nav-link" routerLink="/details" routerLinkActive="active">Booking Details</a>
+ </nav><br>
+<form >
+    <div class="row">
+        <div class="col-sm-2">
+            First Name: <input type="text" class="form-control" [(ngModel)]="booking.firstName" name="firstName"  placeholder="Enter first name">
+        </div>
+        <div class="col-sm-2">
+            Last Name: <input type="text" class="form-control" [(ngModel)]="booking.lastName" name="lastName"  placeholder="Enter last name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+            Flight No:<input type="text"class="form-control" [(ngModel)]="booking.flightNo" name="flightNo" readonly>
+        </div>
+        <div class="col-sm-2">
+            Age: <input type="number" class="form-control" [(ngModel)]="booking.age" name="age"  placeholder="Enter age">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+            Email Id: <input type="email" class="form-control" [(ngModel)]="booking.mail" name="mail" placeholder="Enter passenger email">
+        </div>
+        <div class="col-sm-2">
+            Seat No: <input type="number" class="form-control" [(ngModel)]="booking.seatNo" name="seatNo" placeholder="Enter seat no">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+            Cost: <input type="number" class="form-control" [(ngModel)]="booking.cost" name="cost" readonly>
+        </div>
+        <div class="col-sm-2">
+            Booking Mail : <input type="text" class="form-control" [(ngModel)]="booking.bookingMail" name="bookingMail" readonly>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+            Gender:<input type="radio"class="form-check-input"  [(ngModel)]="booking.gender" name='gender' value="male">Male
+            <input type="radio"class="form-check-input" [(ngModel)]="booking.gender" name='gender' value="female">Female
+        </div>
+        <div class="col-sm-2">
+            Meal Type:<input type="radio" class="form-check-input"  [(ngModel)]="booking.mealType" name='meal' value="veg">Veg
+            <input type="radio" class="form-check-input"  [(ngModel)]="booking.mealType" name='meal' value="non-veg">Non Veg
+        </div>
+      </div>
+  
+    <button class="btn btn-primary" (click)='bookFlight()' onclick="alert('booking successful')">Book Flight</button>
 </form><br>
-<button><a routerLink="/searchFlight" routerLinkActive="active">Previous page</a></button>

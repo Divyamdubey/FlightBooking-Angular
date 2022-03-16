@@ -23,14 +23,19 @@ export class AddFlightComponent implements OnInit {
   addFlight() {
     const observable = this.adminService.addFlight(this.flight);
     observable.subscribe((response: any) => {//success handler
-      if (response.something) {
-        console.warn("addedsuccessfully")
+      if (response==null) {
+        console.warn("flight already present with same flight no.")
       }
       console.log(response);
     },
-      function (error: any) { //error handler
-        alert('something went wrong. Please try again.')
-      });
+      function (error:400) { //error handler
+        if (error==400) {
+          console.warn("flight already present with same flight no.")
+        }
+        else{alert('something went wrong. Please try again.')}
+        
+      }
+    );
   }
   constructor(public adminService: AdminService) { }
 

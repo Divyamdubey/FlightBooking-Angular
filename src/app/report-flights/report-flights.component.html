@@ -1,7 +1,12 @@
+<nav class="nav nav-pills">
+    <a class="nav-link  " routerLink="/addFlight" routerLinkActive="active">Add Flight</a>
+    <a class="nav-link active"routerLink="/report" routerLinkActive="active">Flight Report</a>
+  </nav><br>
 <h2>Flight Report</h2><br>
-Flight No: <input type="text">
-<button (click)='search()'>Search</button><br>
-<table class="table" border="solid">
+<button class="btn btn-primary" (click)='search()'>Show Flights</button><br>
+<div class="table-responsive">
+<table class="table table-striped table"class="table table-hover" border="solid">
+    <caption>List Of Flights</caption>
     <thead>
         <th scope="col">Flight No</th>
         <th scope="col">Flight Name</th>
@@ -33,10 +38,10 @@ Flight No: <input type="text">
                 <input type="radio" ng-model="status" name='status' value="Unblocked"
                     (click)='status= "Unblocked"'>Unblock
             </td>
-            <td><button (click)='changeStatus(flight.flightNo,status)'>Update Status</button>
-                <button (click)='deleteFlight(flight.flightNo)'>Delete</button>
+            <td><button class="btn btn-outline-secondary btn-sm"  data-toggle="button" aria-pressed="false" autocomplete="off"(click)='changeStatus(flight.flightNo,status)'>Update Status</button>
+                <button class="btn btn-outline-danger btn-sm"  data-toggle="button" aria-pressed="false" autocomplete="off"(click)='deleteFlight(flight.flightNo)'>Delete</button>
             </td>
         </tr>
     </tbody>
 </table><br>
-<button><a routerLink="/addFlight" routerLinkActive="active">Previous page</a></button>
+</div>
