@@ -1,50 +1,61 @@
-<nav class="nav nav-pills">
-   <a class="nav-link active" routerLink="/searchFlight" routerLinkActive="active">Search</a>
-   <a class="nav-link" routerLink="/book" routerLinkActive="active">Book Flight</a>
-   <a class="nav-link" routerLink="/details" routerLinkActive="active">Booking Details</a>
-</nav><br>
-<h3>Search Flight</h3><br>
-<div class="row">
-    <div class="col-sm-2">
-        From:<input type="text" class="form-control" [(ngModel)]="searchFlight.departureFrom" name="departureFrom" placeholder="Enter departure airport">
+<body>
+    <nav class="nav nav-pills">
+        <a class="nav-link active" routerLink="/searchFlight" routerLinkActive="active">Search</a>
+        <a class="nav-link" routerLink="/book" routerLinkActive="active">Book Flight</a>
+        <a class="nav-link" routerLink="/details" routerLinkActive="active">Booking Details</a>
+    </nav><br>
+    <h3>Search Flight</h3><br>
+    <div class="row">
+        <div class="col-sm-2">
+            From:<input type="text" class="form-control" [(ngModel)]="searchFlight.departureFrom" name="departureFrom"
+                placeholder="Enter departure airport">
+            <div style="color:red" *ngIf="fromError">
+                {{fromErrors}}
+            </div>
+        </div>
+        <div class="col-sm-2">
+            To:<input type="text" class="form-control" [(ngModel)]="searchFlight.arrivalTo" name="arrivalTo"
+                placeholder="Enter arrival airport">
+            <div style="color:red" *ngIf="toError">
+                {{toErrors}}
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <br>
+            <button class="btn btn-primary" (click)="search()"> Search</button><br>
+        </div>
     </div>
-    <div class="col-sm-2"> 
-        To:<input type="text" class="form-control" [(ngModel)]="searchFlight.arrivalTo" name="arrivalTo" placeholder="Enter arrival airport">
+    <br>
+    <div class="table-responsive">
+        <table class="table table-striped table" class="table table-hover" border="solid">
+            <thead>
+                <th scope="col">Flight No</th>
+                <th scope="col">Flight Name</th>
+                <th scope="col">Arrival Date</th>
+                <th scope="col">Departure Date</th>
+                <th scope="col">From</th>
+                <th scope="col">To</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Discount Code</th>
+                <th scope="col">Total Seats</th>
+                <th scope="col">Status</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let flight of flights" style="background-color: rgb(240, 255, 254);">
+                    <td>{{flight.flightNo}}</td>
+                    <td>{{flight.name}}</td>
+                    <td>{{flight.arrivalDate}}</td>
+                    <td>{{flight.departureDate}}</td>
+                    <td>{{flight.departureFrom}}</td>
+                    <td>{{flight.arrivalTo}}</td>
+                    <td>{{flight.cost}}</td>
+                    <td>{{flight.discountCode}}</td>
+                    <td>{{flight.totalSeats}}</td>
+                    <td><a class="btn btn-outline-primary btn-sm" routerLink="/book" routerLinkActive="active"
+                            (click)=' setFlightNo(flight.flightNo)' (click)='setCost(flight.cost)'
+                            (click)='setFrom(flight.departureFrom)' (click)='setTo(flight.arrivalTo)'>Book</a></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="col-sm-2"> 
-        <br>
-       <button  class="btn btn-primary" (click)="search()"> Search</button><br>
-    </div>
-  </div>
-<br>
-<div class="table-responsive">
-<table class="table table-striped table"class="table table-hover" border="solid">
-    <thead>
-        <th scope="col">Flight No</th>
-        <th scope="col">Flight Name</th>
-        <th scope="col">Arrival Date</th>
-        <th scope="col">Departure Date</th>
-        <th scope="col">From</th>
-        <th scope="col">To</th>
-        <th scope="col">Cost</th>
-        <th scope="col">Discount Code</th>
-        <th scope="col">Total Seats</th>
-        <th scope="col">Status</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let flight of flights" style="background-color: rgb(240, 255, 254);">
-            <td>{{flight.flightNo}}</td>
-            <td>{{flight.name}}</td>
-            <td>{{flight.arrivalDate}}</td>
-            <td>{{flight.departureDate}}</td>
-            <td>{{flight.departureFrom}}</td>
-            <td>{{flight.arrivalTo}}</td>
-            <td>{{flight.cost}}</td>
-            <td>{{flight.discountCode}}</td>
-            <td>{{flight.totalSeats}}</td>
-            <td><a class="btn btn-outline-primary btn-sm" routerLink="/book" routerLinkActive="active" (click)=' setFlightNo(flight.flightNo)'
-                        (click)='setCost(flight.cost)'>Book</a></td>
-        </tr>
-    </tbody>
-</table>
-</div>
+</body>

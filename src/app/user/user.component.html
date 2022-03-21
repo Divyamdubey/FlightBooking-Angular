@@ -1,13 +1,19 @@
-<H2>User Login Page</H2><br><br>
+<H2 style="background-color: rgb(206, 245, 245);">User Login Page</H2><br><br>
 <form>
         <div class="col-sm-2">
                 Enter User Email : <input class="form-control" type="email" placeholder="Enter email"
-                        [(ngModel)]="user.email" name="email" required><br>
-        </div>
+                        [(ngModel)]="user.email" name="email" required>
+                <div style="color:red" *ngIf="showNameError">
+                        {{nameError}}
+                </div>
+        </div><br>
 
         <div class="col-sm-2">
                 Enter Password : <input class="form-control" type="password" [(ngModel)]="user.password"
-                        placeholder="Enter password" name="password" required><br>
+                        placeholder="Enter password" name="password" required>
+                <div style="color:red" *ngIf="showpasswordError">
+                        {{passwordError}}
+                </div><br>
         </div>
         <button class="btn btn-primary btn-sm" (click)='login()'>Login</button>
         <input class="btn btn-secondary btn-sm" type="reset"><br>

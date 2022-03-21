@@ -1,49 +1,89 @@
 <nav class="nav nav-pills">
   <a class="nav-link active " routerLink="/addFlight" routerLinkActive="active">Add Flight</a>
-  <a class="nav-link"routerLink="/report" routerLinkActive="active">Flight Report</a>
+  <a class="nav-link" routerLink="/report" routerLinkActive="active">Flight Report</a>
 </nav><br>
 <h2>Add Flight</h2>
-<form>
+<form name="form">
   <div class="row">
     <div class="col-sm-2">
-      Flight No:<input type="text" class="form-control" [(ngModel)]="flight.flightNo" name="flightNo" placeholder="Enter flight no.">
+      Flight No:<input type="text" class="form-control" [(ngModel)]="flight.flightNo" name="flightNo"
+        placeholder="Enter flight no.">
+      <div style="color:red" *ngIf=" flightNoErrors">
+        {{flightNoError}}
+      </div>
     </div>
-    <div class="col-sm-2"> 
-      Flight Name:<input type="text" class="form-control" [(ngModel)]="flight.name" name="name" placeholder="Enter flight name">
+    <div class="col-sm-2">
+      Flight Name:<input type="text" class="form-control" [(ngModel)]="flight.name" name="name"
+        placeholder="Enter flight name">
+      <div style="color:red" *ngIf="nameErrors">
+        {{nameError}}
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-2">
-      From: <input type="text" class="form-control" [(ngModel)]="flight.departureFrom" name="departureFrom" placeholder="Enter departure airport">
+      From: <input type="text" class="form-control" [(ngModel)]="flight.departureFrom" name="departureFrom"
+        placeholder="Enter departure airport">
+      <div style="color:red" *ngIf="fromErrors">
+        {{fromError}}
+      </div>
     </div>
-    <div class="col-sm-2"> 
-      To: <input type="text" class="form-control" [(ngModel)]="flight.arrivalTo" name="arrivalTo" placeholder="Enter arrival airport">
+    <div class="col-sm-2">
+      To: <input type="text" class="form-control" [(ngModel)]="flight.arrivalTo" name="arrivalTo"
+        placeholder="Enter arrival airport">
+      <div style="color:red" *ngIf="toErrors">
+        {{toError}}
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-2">
-      Departure Date: <input type="date" class="form-control" [(ngModel)]="flight.departureDate" name="departureDate" placeholder="Select departure date">
+      Departure Date: <input type="date" class="form-control" [(ngModel)]="flight.departureDate" name="departureDate"
+        placeholder="Select departure date">
+      <div style="color:red" *ngIf="fromdateErrors">
+        {{fromdateError}}
+      </div>
     </div>
-    <div class="col-sm-2"> 
-      Arrival Date: <input type="date" class="form-control" [(ngModel)]="flight.arrivalDate" name="arrivalDate" placeholder="Select arrival date">
+    <div class="col-sm-2">
+      Arrival Date: <input type="date" class="form-control" [(ngModel)]="flight.arrivalDate" name="arrivalDate"
+        placeholder="Select arrival date">
+      <div style="color:red" *ngIf="todateErrors">
+        {{todateError}}
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-2">
       Cost: <input type="number" class="form-control" [(ngModel)]="flight.cost" name="cost" placeholder="Enter Cost">
+      <div style="color:red" *ngIf="statusErrors">
+        {{statusError}}
+      </div>
     </div>
-    <div class="col-sm-2"> 
-      Discount Code: <input type="text" class="form-control" [(ngModel)]="flight.discountCode" name="discountCode" placeholder="Enter discountCode">
+    <div class="col-sm-2">
+      Discount Code: <input type="text" class="form-control" [(ngModel)]="flight.discountCode" name="discountCode"
+        placeholder="Enter discountCode">
+      <div style="color:red" *ngIf="costErrors">
+        {{costError}}
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-2">
-      Total Seats: <input type="number" class="form-control" [(ngModel)]="flight.totalSeats" name="totalSeats" placeholder="Enter total seats">
+      Total Seats: <input type="number" class="form-control" [(ngModel)]="flight.totalSeats" name="totalSeats"
+        placeholder="Enter total seats">
+      <div style="color:red" *ngIf="totalseatErrors">
+        {{totalseatError}}
+      </div>
     </div>
-    <div class="col-sm-2"> 
+    <div class="col-sm-2">
 
-    <br>Status: <input type="radio" class="form-check-input" [(ngModel)]="flight.status" name="status" value="Blocked">Block
-  <input type="radio" class="form-check-input" [(ngModel)]="flight.status" name="status" value="Unblocked">Unblock<br>
+      <br>Status: <input type="radio" class="form-check-input" [(ngModel)]="flight.status" name="status"
+        value="Blocked">Block
+      <input type="radio" class="form-check-input" [(ngModel)]="flight.status" name="status"
+        value="Unblocked">Unblock<br>
+      <div style="color:red" *ngIf="discountErrors">
+        {{discountError}}
+      </div>
     </div>
   </div>
   <button class="btn btn-primary" (click)='addFlight()'>Add Flight</button>

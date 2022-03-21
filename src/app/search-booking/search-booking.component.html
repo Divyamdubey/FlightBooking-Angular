@@ -1,46 +1,84 @@
-<nav class="nav nav-pills">
-  <a class="nav-link " routerLink="/searchFlight" routerLinkActive="active">Search</a>
-  <a class="nav-link" routerLink="/book" routerLinkActive="active">Book Flight</a>
-  <a class="nav-link active" routerLink="/details" routerLinkActive="active">Booking Details</a>
-</nav><br>
-<h3>Search Booking</h3><br>
-<div class="row">
-  <div class="col-sm-2">
-    <label> Pnr/Email:</label><input type="text" class="form-control" [(ngModel)]="searchBooking" placeholder="Enter pnr or email">
-  </div>
-  <div class="col-sm-2"> 
-   
-    <br> <button class="btn btn-primary" (click)='searchBookings()'>Search</button><br>
-  </div>
-</div>
-<br>
-<table class="table table-striped table"class="table table-hover" border="solid">
-  <thead >
-    <th scope="col">Id</th>
-    <th scope="col">Flight No</th>
-    <th scope="col">Pnr</th>
-    <th scope="col">Email</th>
-    <th scope="col">Cancel</th>
-  </thead>
-  <tbody>
-    <ng-container *ngIf="flag2">
-      <tr *ngFor="let detail of details;index as i" style="background-color: rgb(240, 255, 254);">
-        <td>{{detail.id}}</td>
-        <td>{{detail.flightNo}}</td>
-        <td>{{detail.pnr}}</td>
-        <td>{{detail.userEmail}}</td>
-        <td><button class="btn btn-outline-danger btn-sm" (click)='deleteBooking(detail.pnr, i)'>Cancel</button></td>
-      </tr>
-    </ng-container>
-    <ng-container *ngIf="flag1">
-      <tr style="background-color: rgb(240, 255, 254);">
-        <td>{{detail.id}}</td>
-        <td>{{detail.flightNo}}</td>
-        <td>{{detail.pnr}}</td>
-        <td>{{detail.userEmail}}</td>
-        <td><button class="btn btn-outline-danger btn-sm" (click)='deleteBooking(detail.pnr, 0)'>Cancel</button></td>
-      </tr>
-    </ng-container>
+<body>
+  <nav class="nav nav-pills">
+    <a class="nav-link " routerLink="/searchFlight" routerLinkActive="active">Search</a>
+    <a class="nav-link" routerLink="/book" routerLinkActive="active">Book Flight</a>
+    <a class="nav-link active" routerLink="/details" routerLinkActive="active">Booking Details</a>
+  </nav><br>
+  <ng-container *ngIf="flag3">
+    <h3>Search Booking</h3><br>
+    <div class="row">
+      <div class="col-sm-2">
+        <label> Pnr/Email:</label><input type="text" class="form-control" [(ngModel)]="searchBooking.searchBooking"
+          placeholder="Enter pnr or email">
+        <div style="color:red" *ngIf="pnrError">
+          {{pnrErrors}}
+        </div>
+      </div>
+      <div class="col-sm-2">
 
-  </tbody>
-</table><br>
+        <br> <button class="btn btn-primary" (click)='searchBookings()'>Search</button><br>
+      </div>
+    </div>
+    <br>
+    <table class="table table-striped table" class="table table-hover" border="solid">
+      <thead>
+        <th scope="col">Id</th>
+        <th scope="col">Flight No</th>
+        <th scope="col">Pnr</th>
+        <th scope="col">Email</th>
+        <th scope="col">Cancel</th>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="flag2">
+          <tr *ngFor="let detail of details;index as i" style="background-color: rgb(240, 255, 254);">
+            <td>{{detail.id}}</td>
+            <td>{{detail.flightNo}}</td>
+            <td>{{detail.pnr}}</td>
+            <td>{{detail.userEmail}}</td>
+            <td><button class="btn btn-outline-danger btn-sm" (click)='deleteBooking(detail.pnr, i)'>Cancel</button>
+              <button class="btn btn-outline-primary btn-sm" (click)='viewDetails(detail.pnr, i)'>View Details</button>
+            </td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="flag1">
+          <tr style="background-color: rgb(240, 255, 254);">
+            <td>{{detail.id}}</td>
+            <td>{{detail.flightNo}}</td>
+            <td>{{detail.pnr}}</td>
+            <td>{{detail.userEmail}}</td>
+            <td><button class="btn btn-outline-danger btn-sm" (click)='deleteBooking(detail.pnr, 0)'>Cancel</button>
+              <button class="btn btn-outline-primary btn-sm" (click)='viewDetails(detail.pnr, 0)'>View Details</button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table><br>
+  </ng-container>
+
+  <ng-container *ngIf="!flag3">
+    <table class="table table-striped table" class="table table-hover" border="solid">
+      <thead>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Pnr</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">MealType</th>
+        <th scope="col">Email</th>
+        <th scope="col">Back</th>
+      </thead>
+      <tbody>
+        <tr style="background-color: rgb(240, 255, 254);">
+          <td>{{passenger.firstName}}</td>
+          <td>{{passenger.lastName}}</td>
+          <td>{{passenger.pnr}}</td>
+          <td>{{passenger.age}}</td>
+          <td>{{passenger.gender}}</td>
+          <td>{{passenger.mealType}}</td>
+          <td>{{passenger.mail}}</td>
+          <td> <button class="btn btn-outline-primary btn-sm" (click)='back()'>Back</button></td>
+        </tr>
+      </tbody>
+    </table><br>
+  </ng-container>
+</body>

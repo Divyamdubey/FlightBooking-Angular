@@ -1,51 +1,203 @@
-<nav class="nav nav-pills">
-    <a class="nav-link " routerLink="/searchFlight" routerLinkActive="active">Search</a>
-    <a class="nav-link active" routerLink="/book" routerLinkActive="active">Book Flight</a>
-    <a class="nav-link" routerLink="/details" routerLinkActive="active">Booking Details</a>
- </nav><br>
-<form >
-    <div class="row">
-        <div class="col-sm-2">
-            First Name: <input type="text" class="form-control" [(ngModel)]="booking.firstName" name="firstName"  placeholder="Enter first name">
+<body>
+    <nav class="nav nav-pills">
+        <a class="nav-link " routerLink="/searchFlight" routerLinkActive="active">Search</a>
+        <a class="nav-link active" routerLink="/book" routerLinkActive="active">Book Flight</a>
+        <a class="nav-link" routerLink="/details" routerLinkActive="active">Booking Details</a>
+    </nav><br>
+    <form>
+        <div class="row">
+            <div class="col-sm-2">
+                <input type="radio" class="form-check-input" (click)='eventClick("false")' name="return">One Way
+                <input type="radio" class="form-check-input" (click)='eventClick("true")' name="return">Round Trip
+            </div>
         </div>
-        <div class="col-sm-2">
-            Last Name: <input type="text" class="form-control" [(ngModel)]="booking.lastName" name="lastName"  placeholder="Enter last name">
+        <div class="row">
+            <div class="col-sm-2">
+                First Name: <input type="text" class="form-control" [(ngModel)]="booking.firstName" name="firstName"
+                    placeholder="Enter first name">
+                <div style="color:red" *ngIf="firstNameError">
+                    {{firstNameErrors}}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                Last Name: <input type="text" class="form-control" [(ngModel)]="booking.lastName" name="lastName"
+                    placeholder="Enter last name">
+                <div style="color:red" *ngIf="lastNameError">
+                    {{lastNameErrors}}
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2">
-            Flight No:<input type="text"class="form-control" [(ngModel)]="booking.flightNo" name="flightNo" readonly>
+        <div class="row">
+            <div class="col-sm-2">
+                Flight No:<input type="text" class="form-control" [(ngModel)]="booking.flightNo" name="flightNo"
+                    readonly>
+            </div>
+            <div class="col-sm-2">
+                Age: <input type="number" class="form-control" [(ngModel)]="booking.age" name="age"
+                    placeholder="Enter age">
+                <div style="color:red" *ngIf="ageError">
+                    {{ageErrors}}
+                </div>
+            </div>
         </div>
-        <div class="col-sm-2">
-            Age: <input type="number" class="form-control" [(ngModel)]="booking.age" name="age"  placeholder="Enter age">
+        <div class="row">
+            <div class="col-sm-2">
+                Email Id: <input type="email" class="form-control" [(ngModel)]="booking.mail" name="mail"
+                    placeholder="Enter passenger email">
+                <div style="color:red" *ngIf="mailError">
+                    {{mailErrors}}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                Seat No: <input type="number" class="form-control" [(ngModel)]="booking.seatNo" name="seatNo"
+                    placeholder="Enter seat no">
+                <div style="color:red" *ngIf="seatError">
+                    {{seatErrors}}
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2">
-            Email Id: <input type="email" class="form-control" [(ngModel)]="booking.mail" name="mail" placeholder="Enter passenger email">
+        <div class="row">
+            <div class="col-sm-2">
+                Cost: <input type="number" class="form-control" [(ngModel)]="booking.cost" name="cost" readonly>
+            </div>
+            <div class="col-sm-2">
+                Booking Mail : <input type="text" class="form-control" [(ngModel)]="booking.bookingMail"
+                    name="bookingMail" readonly>
+            </div>
         </div>
-        <div class="col-sm-2">
-            Seat No: <input type="number" class="form-control" [(ngModel)]="booking.seatNo" name="seatNo" placeholder="Enter seat no">
+        <div class="row">
+            <div class="col-sm-2">
+                Gender:<input type="radio" class="form-check-input" [(ngModel)]="booking.gender" name='gender'
+                    value="male">Male
+                <input type="radio" class="form-check-input" [(ngModel)]="booking.gender" name='gender'
+                    value="female">Female
+                <div style="color:red" *ngIf="genderError">
+                    {{genderErrors}}
+                </div>
+            </div>
+            <div class="col-sm-2">
+                Meal Type:<input type="radio" class="form-check-input" [(ngModel)]="booking.mealType" name='meal'
+                    value="veg">Veg
+                <input type="radio" class="form-check-input" [(ngModel)]="booking.mealType" name='meal'
+                    value="non-veg">Non
+                Veg
+                <div style="color:red" *ngIf="mealTypeError">
+                    {{mealTypeErrors}}
+                </div>
+            </div>
+
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2">
-            Cost: <input type="number" class="form-control" [(ngModel)]="booking.cost" name="cost" readonly>
-        </div>
-        <div class="col-sm-2">
-            Booking Mail : <input type="text" class="form-control" [(ngModel)]="booking.bookingMail" name="bookingMail" readonly>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2">
-            Gender:<input type="radio"class="form-check-input"  [(ngModel)]="booking.gender" name='gender' value="male">Male
-            <input type="radio"class="form-check-input" [(ngModel)]="booking.gender" name='gender' value="female">Female
-        </div>
-        <div class="col-sm-2">
-            Meal Type:<input type="radio" class="form-check-input"  [(ngModel)]="booking.mealType" name='meal' value="veg">Veg
-            <input type="radio" class="form-check-input"  [(ngModel)]="booking.mealType" name='meal' value="non-veg">Non Veg
-        </div>
-      </div>
-  
-    <button class="btn btn-primary" (click)='bookFlight()' onclick="alert('booking successful')">Book Flight</button>
-</form><br>
+        <ng-container *ngIf="!flag">
+            <button class="btn btn-primary" (click)='bookFlight()'>Book Flight</button>
+        </ng-container>
+    </form><br>
+    <ng-container *ngIf="flag">
+        <h5>Return Ticket</h5>
+        <ng-container *ngIf="searchWindow">
+            <div class="row">
+                <div class="col-sm-2">
+                    <br>
+                    <button class="btn btn-primary" (click)='search()'>Show Return Flight</button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-striped table" class="table table-hover" border="solid">
+                    <thead>
+                        <th scope="col">Flight No</th>
+                        <th scope="col">Flight Name</th>
+                        <th scope="col">Arrival Date</th>
+                        <th scope="col">Departure Date</th>
+                        <th scope="col">From</th>
+                        <th scope="col">To</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Discount Code</th>
+                        <th scope="col">Total Seats</th>
+                        <th scope="col">Status</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let returnflight of returnflights" style="background-color: rgb(240, 255, 254);">
+                            <td>{{returnflight.flightNo}}</td>
+                            <td>{{returnflight.name}}</td>
+                            <td>{{returnflight.arrivalDate}}</td>
+                            <td>{{returnflight.departureDate}}</td>
+                            <td>{{returnflight.departureFrom}}</td>
+                            <td>{{returnflight.arrivalTo}}</td>
+                            <td>{{returnflight.cost}}</td>
+                            <td>{{returnflight.discountCode}}</td>
+                            <td>{{returnflight.totalSeats}}</td>
+                            <td><button class="btn btn-outline-primary btn-sm"
+                                    (click)=' setReturnFlightNo(returnflight.flightNo)'
+                                    (click)='setReturnCost(returnflight.cost)'
+                                    (click)="returnTicketDetails()">Book</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="returnWindow">
+            <form>
+                <div class="row">
+                    <div class="col-sm-2">
+                        First Name: <input type="text" class="form-control" [(ngModel)]="booking.firstName"
+                            name="firstName" placeholder="Enter first name" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        Last Name: <input type="text" class="form-control" [(ngModel)]="booking.lastName"
+                            name="lastName" placeholder="Enter last name" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Flight No:<input type="text" class="form-control" [(ngModel)]="returnflightNo" name="flightNo"
+                            readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        Age: <input type="number" class="form-control" [(ngModel)]="booking.age" name="age"
+                            placeholder="Enter age" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Email Id: <input type="email" class="form-control" [(ngModel)]="booking.mail" name="mail"
+                            placeholder="Enter passenger email" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        Seat No: <input type="number" class="form-control" [(ngModel)]="returnbooking.seatNo"
+                            name="seatNo" placeholder="Enter seat no">
+                        <div style="color:red" *ngIf="returnseatError">
+                            {{returnseatErrors}}
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Cost: <input type="number" class="form-control" [(ngModel)]="returncost" name="cost" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        Booking Mail : <input type="text" class="form-control" [(ngModel)]="booking.bookingMail"
+                            name="bookingMail" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        Gender:<input type="text" class="form-control" [(ngModel)]="booking.gender" name='gender'
+                            readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        Meal Type:<input type="radio" class="form-check-input" [(ngModel)]="returnbooking.mealType"
+                            name='meal' value="veg">Veg
+                        <input type="radio" class="form-check-input" [(ngModel)]="returnbooking.mealType" name='meal'
+                            value="non-veg">Non
+                        Veg
+                    </div>
+                </div>
+            </form><br>
+
+            <button class="btn btn-primary" (click)='bookReturnFlight()' onclick="alert('booking successful')">Book
+                Flight</button>
+        </ng-container>
+    </ng-container>
+</body>

@@ -1,16 +1,38 @@
-<H2>Admin Login Page</H2><br><br>
-<form>
-    <div class="col-sm-2">
-        Enter Admin Name :<input class="form-control " type="text" [(ngModel)]="admin.name" name="name"
-            placeholder="Enter email" ngModel required><br>
-    </div>
-    <div class="col-sm-2">
-        Enter Password : <input class="form-control" type="password" [(ngModel)]="admin.password"
-                placeholder="Enter password" name="password" required="true"><br>
-</div>
-    <button class="btn btn-primary btn-sm" (click)='login()'>Login</button>
-    <input class="btn btn-secondary btn-sm" type="reset"><br>
-    <ng-container *ngIf="flag">
-        <a  class = "btn btn-primary" routerLink="/addFlight" routerLinkActive="active">Admin Menu</a><br>
-    </ng-container>
-</form>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>form validation</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <H2 style="background-color: rgb(206, 245, 245);">Admin Login Page</H2><br><br>
+    <form name="form">
+        <div class="col-sm-2">
+            Enter Admin Name :<input class="form-control " type="text" [(ngModel)]="admin.name" name="name"
+                placeholder="Enter email" required>
+
+            <div style="color:red" *ngIf="showNameError">
+                {{nameError}}
+            </div>
+        </div>
+
+        <br>
+        <div class="col-sm-2">
+            Enter Password : <input class="form-control" type="password" [(ngModel)]="admin.password"
+                placeholder="Enter password" name="password" required>
+            <div style="color:red" *ngIf="showpasswordError">
+                {{passwordError}}
+            </div>
+            <br>
+        </div>
+        <button type="submit" class="btn btn-primary btn-sm" (click)='login()'>Login</button>
+        <input class="btn btn-secondary btn-sm" type="reset"><br>
+        <ng-container *ngIf="flag">
+            <a class="btn btn-primary" routerLink="/addFlight" routerLinkActive="active">Admin Menu</a><br>
+        </ng-container>
+    </form>
+</body>
+
+</html>

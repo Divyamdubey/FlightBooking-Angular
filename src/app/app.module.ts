@@ -11,14 +11,15 @@ import { SearchBookingComponent } from './search-booking/search-booking.componen
 import { AddFlightComponent } from './add-flight/add-flight.component';
 import { ReportFlightsComponent } from './report-flights/report-flights.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+// import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent, AdminComponent, UserComponent, UserRegistrationComponent, SearchFlightsComponent, BookFlightComponent, SearchBookingComponent, AddFlightComponent, ReportFlightsComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule, HttpClientModule, AppRoutingModule, FormsModule
+    ReactiveFormsModule, BrowserModule, AppRoutingModule, HttpClientModule, AppRoutingModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

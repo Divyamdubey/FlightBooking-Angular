@@ -1,47 +1,50 @@
 <nav class="nav nav-pills">
     <a class="nav-link  " routerLink="/addFlight" routerLinkActive="active">Add Flight</a>
-    <a class="nav-link active"routerLink="/report" routerLinkActive="active">Flight Report</a>
-  </nav><br>
+    <a class="nav-link active" routerLink="/report" routerLinkActive="active">Flight Report</a>
+</nav><br>
 <h2>Flight Report</h2><br>
 <button class="btn btn-primary" (click)='search()'>Show Flights</button><br>
 <div class="table-responsive">
-<table class="table table-striped table"class="table table-hover" border="solid">
-    <caption>List Of Flights</caption>
-    <thead>
-        <th scope="col">Flight No</th>
-        <th scope="col">Flight Name</th>
-        <th scope="col">From</th>
-        <th scope="col">To</th>
-        <th scope="col">Departure Date</th>
-        <th scope="col">Arrival Date</th>
-        <th scope="col">Cost</th>
-        <th scope="col">TotalSeats</th>
-        <th scope="col">DiscountCode</th>
-        <th scope="col">Status</th>
-        <th scope="col">Change Status</th>
-        <th scope="col">Update Flight</th>
-    </thead>
-    <tbody>
-        <tr *ngFor="let flight of flights ;index as i" style="background-color: rgb(240, 255, 254);">
-            <td>{{flight.flightNo}}</td>
-            <td>{{flight.name}}</td>
-            <td>{{flight.departureFrom}}</td>
-            <td>{{flight.arrivalTo}}</td>
-            <td>{{flight.departureDate}}</td>
-            <td>{{flight.arrivalDate}}</td>
-            <td>{{flight.cost}}</td>
-            <td>{{flight.totalSeats}}</td>
-            <td>{{flight.discountCode}}</td>
-            <td>{{flight.status}}</td>
-            <td>
-                <input type="radio" ng-model="status" name='status' value="Blocked" (click)='status= "Blocked"'>Block
-                <input type="radio" ng-model="status" name='status' value="Unblocked"
-                    (click)='status= "Unblocked"'>Unblock
-            </td>
-            <td><button class="btn btn-outline-secondary btn-sm"  data-toggle="button" aria-pressed="false" autocomplete="off"(click)='changeStatus(flight.flightNo,status)'>Update Status</button>
-                <button class="btn btn-outline-danger btn-sm"  data-toggle="button" aria-pressed="false" autocomplete="off"(click)='deleteFlight(flight.flightNo)'>Delete</button>
-            </td>
-        </tr>
-    </tbody>
-</table><br>
+    <table class="table table-striped table" class="table table-hover" border="solid">
+        <caption>List Of Flights</caption>
+        <thead>
+            <th scope="col">Flight No</th>
+            <th scope="col">Flight Name</th>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Departure Date</th>
+            <th scope="col">Arrival Date</th>
+            <th scope="col">Cost</th>
+            <th scope="col">TotalSeats</th>
+            <th scope="col">DiscountCode</th>
+            <th scope="col">Status</th>
+            <th scope="col">Change Status</th>
+            <th scope="col">Update Flight</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let flight of flights ;index as i" style="background-color: rgb(240, 255, 254);">
+                <td>{{flight.flightNo}}</td>
+                <td>{{flight.name}}</td>
+                <td>{{flight.departureFrom}}</td>
+                <td>{{flight.arrivalTo}}</td>
+                <td>{{flight.departureDate}}</td>
+                <td>{{flight.arrivalDate}}</td>
+                <td>{{flight.cost}}</td>
+                <td>{{flight.totalSeats}}</td>
+                <td>{{flight.discountCode}}</td>
+                <td>{{flight.status}}</td>
+                <td>
+                    <input type="radio" ng-model="status" name='status' value="Blocked"
+                        (click)='status= "Blocked"'>Block
+                    <input type="radio" ng-model="status" name='status' value="Unblocked"
+                        (click)='status= "Unblocked"'>Unblock
+                </td>
+                <td><button class="btn btn-outline-secondary btn-sm" data-toggle="button" aria-pressed="false"
+                        autocomplete="off" (click)='changeStatus(flight.flightNo,status)'>Update Status</button>
+                    <button class="btn btn-outline-danger btn-sm" data-toggle="button" aria-pressed="false"
+                        autocomplete="off" (click)='deleteFlight(flight.flightNo)'>Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table><br>
 </div>

@@ -6,6 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class AdminService {
   login(admin: { name: string; password: string; }) {
+
+
+
+
     return this.http.post("http://localhost:8080/flight/admin/login", admin, {
       headers: {
         "content-type": 'application/json'
